@@ -35,7 +35,7 @@ app.post('/api/chat', upload.single('image'), async (req, res) => {
 
     if (!messages) return res.status(400).json({ error: 'Messages are required' });
     
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     
     let systemPrompt = `You are EcoBot, a helpful AI assistant for waste management India. You must respond to all user queries ONLY in English. Use markdown for formatting.`;
     if (language === 'ta') { systemPrompt = `நீங்கள் EcoBot, சென்னையில் கழிவு மேலாண்மைக்கு உதவும் ஒரு AI உதவியாளர். பயனரின் அனைத்து கேள்விகளுக்கும் நீங்கள் தமிழில் மட்டுமே பதிலளிக்க வேண்டும்.`; }
